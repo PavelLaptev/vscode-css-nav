@@ -3,7 +3,11 @@
   "displayName": "CSS Variable Navigation",
   "description": "Navigate to CSS custom property definitions in CSS and Svelte/PostCSS files",
   "version": "0.1.0",
-  "publisher": "css-var-nav",
+  "publisher": "PavelLaptev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PavelLaptev/vscode-css-nav.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
