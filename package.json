@@ -1,0 +1,89 @@
+{
+  "name": "css-var-nav",
+  "displayName": "CSS Variable Navigation",
+  "description": "Navigate to CSS custom property definitions in CSS and Svelte/PostCSS files",
+  "version": "0.1.0",
+  "publisher": "css-var-nav",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "css",
+    "css variables",
+    "custom properties",
+    "postcss",
+    "svelte",
+    "navigation"
+  ],
+  "activationEvents": [
+    "onLanguage:css",
+    "onLanguage:postcss",
+    "onLanguage:svelte",
+    "onLanguage:scss",
+    "onLanguage:less",
+    "onLanguage:html"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cssVarNav.rebuildIndex",
+        "title": "CSS Var Nav: Rebuild Variable Index"
+      }
+    ],
+    "configuration": {
+      "title": "CSS Variable Navigation",
+      "properties": {
+        "cssVarNav.fileGlobs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/*.css",
+            "**/*.postcss",
+            "**/*.pcss",
+            "**/*.svelte",
+            "**/*.scss",
+            "**/*.less",
+            "**/*.html"
+          ],
+          "description": "Glob patterns for files to scan for CSS variable definitions"
+        },
+        "cssVarNav.excludeGlobs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/node_modules/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/.git/**"
+          ],
+          "description": "Glob patterns to exclude from scanning"
+        },
+        "cssVarNav.maxNestingDepth": {
+          "type": "number",
+          "default": 10,
+          "description": "Maximum depth for resolving nested CSS variable references in hover previews"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
